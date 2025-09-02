@@ -1,0 +1,132 @@
+{
+	"info": {
+		"_postman_id": "4432d5f6-8220-4251-b71a-6c1fd616f111",
+		"name": "Assignments",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5967699"
+	},
+	"item": [
+		{
+			"name": "api/party",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"type\": \"GUERRERO\", \"name\": \"Arthos\" }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local}}/api/party",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"api",
+						"party"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/combat/attack",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"attacker\": \"Arthos\", \"defender\": \"Lyra\", \"mode\": \"AUTO\" }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local}}/api/combat/attack",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"api",
+						"combat",
+						"attack"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/combat/heal",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"name\":\"Lyra\",\"amount\":5 }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local}}/api/combat/heal",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"api",
+						"combat",
+						"heal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/status",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local}}/api/status",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"api",
+						"status"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
