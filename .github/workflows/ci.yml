@@ -23,6 +23,19 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      # Paso 3: Construir y ejecutar pruebas
+      # Paso 3: Crear cache de depndencias
+      - name: Cache Maven packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
+      # Paso 4: Construir y ejecutar pruebas
       - name: Build with Maven
-        run: mvn clean install --batch-mode
+        run: mvn clean verify
+
+      # Paso 5: Comprobar que empaqueta
+      - name: Package Spring Boot app
+        run: mvn clean package -DskipTests
