@@ -39,3 +39,7 @@ jobs:
       # Paso 5: Comprobar que empaqueta
       - name: Package Spring Boot app
         run: mvn clean package -DskipTests
+
+      # Paso 6: Reportar con jacoco
+      - name: Generate Coverage Report
+        run: mvn jacoco:report
