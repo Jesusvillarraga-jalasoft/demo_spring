@@ -14,4 +14,13 @@ class CalculatorServiceTest {
         assertEquals(5, calculator.add(2, 3));
     }
 
+    @Test
+    void testDivide() {
+        assertEquals(2, calculator.divide(6, 3));
+    }
+
+    @Test
+    void testDivideByZero() {
+        assertThrows(IllegalArgumentException.class, () -> calculator.divide(10, 0));
+    }
 }
