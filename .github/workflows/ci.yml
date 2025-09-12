@@ -36,18 +36,18 @@ jobs:
       - name: Build with Maven
         run: mvn clean verify
 
-      # Paso 5: Comprobar que empaqueta
-      - name: Package Spring Boot app
-        run: mvn clean package -DskipTests
-
-      # Paso 6: Reportar con jacoco
+        # Paso 5: Reportar con jacoco
       - name: Generate Coverage Report
         run: mvn jacoco:report
 
-      # Paso 7: Reportar Artifact
+        # Paso 6: Reportar Artifact
       - name: Upload JaCoCo Report
         uses: actions/upload-artifact@v4
         with:
-          name: jacoco-report
-          path: target/site/jacoco/
-          retention-days: 7
+           name: jacoco-report
+           path: target/site/jacoco/
+           retention-days: 7
+
+      # Paso 7: Comprobar que empaqueta
+      - name: Package Spring Boot app
+        run: mvn clean package -DskipTests
