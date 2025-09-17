@@ -13,7 +13,7 @@ public class Perfil {
 
     private String bio;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "usuario_id", unique = true)
     private Usuario usuario;
 }

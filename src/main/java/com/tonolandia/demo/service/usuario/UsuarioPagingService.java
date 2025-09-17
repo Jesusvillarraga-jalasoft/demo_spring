@@ -4,7 +4,9 @@ import com.tonolandia.demo.entity.Usuario;
 import com.tonolandia.demo.repository.usuario.UsuarioPagingRepo;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UsuarioPagingService {
     private final UsuarioPagingRepo repo;
 

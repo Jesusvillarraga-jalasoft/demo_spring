@@ -45,7 +45,7 @@ public interface UsuarioJpaRepo extends JpaRepository<Usuario, Long> {
     UsuarioConPerfilProjection findUsuarioConPerfilSoloId(@Param("id") Long id);
 
     // 🔹 DTO projection
-    @Query("SELECT new com.demo.dto.UsuarioConPerfilDto(u.id, u.nombre, u.email, p.id) " +
+    @Query("SELECT new com.tonolandia.demo.record.UsuarioConPerfilDto(u.id, u.nombre, u.email, p.id) " +
             "FROM Usuario u LEFT JOIN u.perfil p WHERE u.id = :id")
     UsuarioConPerfilDto findUsuarioConPerfilDto(@Param("id") Long id);
 

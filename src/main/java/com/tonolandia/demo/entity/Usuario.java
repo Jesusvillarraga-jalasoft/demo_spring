@@ -13,7 +13,7 @@ import java.util.Set;
 @Table(name = "usuarios")
 @NamedQueries({
         @NamedQuery(name = "Usuario.buscarPorDominioEmail",
-                query = "SELECT u FROM Usuario u WHERE u.email LIKE %:dominio%"),
+                query = "SELECT u FROM Usuario u WHERE u.email LIKE CONCAT('%', :dominio, '%')"),
         @NamedQuery(name = "Usuario.buscarActivos",
                 query = "SELECT u FROM Usuario u WHERE u.activo = true")
 })
@@ -31,7 +31,7 @@ public class Usuario implements Persistable<Long> {
     private boolean activo;
 
     // Perfil con EAGER
-    @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Perfil perfil;
 
     // Órdenes con LAZY

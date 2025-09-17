@@ -26,7 +26,7 @@ public interface ProductoRepository extends JpaRepository<Producto, ProductoId> 
     // Buscar productos por parte del lote del ID compuesto
     List<Producto> findByIdLote(String lote);
 
-    @Query("SELECT new com.demo.dto.ProductoResumenDto(p.id.codigo, p.id.lote, p.precio) " +
+    @Query("SELECT new com.tonolandia.demo.dto.ProductoResumenDto(p.id.codigo, p.id.lote, p.precio) " +
             "FROM Producto p WHERE p.precio > :precioMin")
     List<ProductoResumenDto> buscarProductosCaros(@Param("precioMin") Double precioMin);
 }
