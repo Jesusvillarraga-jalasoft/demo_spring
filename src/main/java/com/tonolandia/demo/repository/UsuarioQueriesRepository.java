@@ -11,6 +11,9 @@ public interface UsuarioQueriesRepository extends JpaRepository<Usuario, Long> {
     @Query("select u from Usuario u where type(u) = UsuarioAdmin")
     List<Usuario> findAdminsWithType();
 
-    //@Query("select u from Usuario u where u instance of UsuarioAdmin")
-    //List<Usuario> findAdminsWithInstanceOf();
+    @Query("select u from Usuario u where type(u) = UsuarioAdminMajor")
+    List<Usuario> findAdminsWithTypeMajor();
+
+    @Query("select u from Usuario u where u instance of UsuarioAdmin")
+    List<Usuario> findAdminsWithInstanceOf();
 }

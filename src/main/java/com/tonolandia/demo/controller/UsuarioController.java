@@ -2,6 +2,7 @@ package com.tonolandia.demo.controller;
 
 import com.tonolandia.demo.entity.Usuario;
 import com.tonolandia.demo.entity.UsuarioAdmin;
+import com.tonolandia.demo.entity.UsuarioAdminMajor;
 import com.tonolandia.demo.entity.UsuarioRegular;
 import com.tonolandia.demo.repository.UsuarioAdminRepository;
 import com.tonolandia.demo.repository.UsuarioQueriesRepository;
@@ -62,14 +63,11 @@ public class UsuarioController {
         return queriesRepo.findAdminsWithType();
     }
 
-    /*@Operation(
-            summary = "Listar solo administradores con INSTANCE OF",
-            description = "Usa JPQL con u instance of UsuarioAdmin"
-    )
-    @GetMapping("/admins/instance")
-    public List<Usuario> adminsWithInstanceOf() {
-        return queriesRepo.findAdminsWithInstanceOf();
-    }*/
+    @GetMapping("/adminsMajor/type")
+    public List<Usuario> adminsWithTypeMajor() {
+        return queriesRepo.findAdminsWithTypeMajor();
+    }
+
 
     @Operation(summary = "Crear usuario regular")
     @PostMapping("/regular")
@@ -80,6 +78,12 @@ public class UsuarioController {
     @Operation(summary = "Crear usuario admin")
     @PostMapping("/admin")
     public UsuarioAdmin createAdmin(@RequestBody UsuarioAdmin u) {
+        return usuarioRepo.save(u);
+    }
+
+    @Operation(summary = "Crear usuario admin")
+    @PostMapping("/adminMajor")
+    public UsuarioAdmin createAdminMajor(@RequestBody UsuarioAdminMajor u) {
         return usuarioRepo.save(u);
     }
 }
